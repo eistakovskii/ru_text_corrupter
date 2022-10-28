@@ -53,7 +53,7 @@ class MisspellCorrupter(AbstractCorrupter):
             else:
                 corrupted.append(word)
         
-        corrupted = [corrupted[i-1]+v if v in ',!.?' else v for i, v in enumerate(corrupted)]
+#         corrupted = [corrupted[i-1]+v if v in ',!.?' else v for i, v in enumerate(corrupted)]
 
         return ' '.join(corrupted)
 
