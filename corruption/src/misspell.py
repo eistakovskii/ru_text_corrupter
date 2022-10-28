@@ -5,6 +5,8 @@ import numpy as np
 from .abstract import AbstractCorrupter
 from .edits import deletes, tranposes, replaces, inserts
 
+import re
+
 __all__ = ['MisspellCorrupter']
 
 TRANSPOSE = 'TRANPOSE'
@@ -28,7 +30,9 @@ class MisspellCorrupter(AbstractCorrupter):
 
 
     def _corrupt(self, utterance: str) -> str:
-        splitted = utterance.split()
+#         splitted = utterance.split()
+        splitted = re.findall( r'\w+|[^\s\w]+', utterance) 
+        
         permutables = { *filter(lambda w: w.isalpha(), splitted) }
 
         p = self.prng.geometric(MisspellCorrupter._NOISE_LEVEL)
