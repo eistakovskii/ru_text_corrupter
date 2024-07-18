@@ -2,8 +2,8 @@ from typing import List
 
 import numpy as np
 
-from .abstract import AbstractCorrupter
-from .edits import deletes, tranposes, replaces, inserts
+from abstract import AbstractCorrupter
+from edits import deletes, tranposes, replaces, inserts
 
 import re
 
@@ -52,9 +52,7 @@ class MisspellCorrupter(AbstractCorrupter):
                                  }[swaps[lowered]])
             else:
                 corrupted.append(word)
-        
 #         corrupted = [corrupted[i-1]+v if v in ',!.?' else v for i, v in enumerate(corrupted)]
-
         return ' '.join(corrupted)
 
 
