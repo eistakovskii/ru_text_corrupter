@@ -4,18 +4,16 @@ import joblib
 import numpy as np
 import pandas as pd
 
-from .abstract import AbstractCorrupter
-from .misspell import MisspellCorrupter
-from .synonym import SynonymsCorrupter
+from abstract import AbstractCorrupter
+from misspell import MisspellCorrupter
 
 
 class Corrupter:
-    _DEFAULT_SEED = 2020
+    _DEFAULT_SEED = 42
 
 
     def __init__(self, prng: Optional[np.random.RandomState] = None):
         self.prng = prng or np.random.RandomState(Corrupter._DEFAULT_SEED)
-        self._synonym_corrupter = SynonymsCorrupter(self.prng)
         self._misspell_corrupter = MisspellCorrupter(self.prng)
 
 
@@ -31,11 +29,10 @@ class Corrupter:
         return wrapped
 
 
-    def corrupt(self, obj: Union[pd.DataFrame, str, List[str]], syn: int = 0, typo: int = 0,
+    def corrupt(self, obj: Union[pd.DataFrame, str, List[str]], typo: int = 0,
                 typo_first: bool = False, n_workers: int = 0, col: Optional[str] = None):
 
-        operations = [(self._synonym_corrupter, syn),
-                      (self._misspell_corrupter, typo)]
+        operations = [(self._misspell_corrupter, typo)]
         if typo_first:
             operations.reverse()
 
