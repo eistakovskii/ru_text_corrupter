@@ -8,7 +8,6 @@
 
 Script that takes some text as input and randomly modify words by using either
 - Levenshtein edit operations
-- Synonym replacement, based on an open source Thesaurus from the Libre Office project (as reported in section 2.4 of paper below)
 
 Corruptions can be used as a data augmentation technique, or to benchmark NLP models robustness to misspells and/or synonyms.
 ## Set up
@@ -30,29 +29,4 @@ corrupter.corrupt(sample, syn=0, typo=3)
 
 corrupter.corrupt(sample, syn=2, typo=3)
 >>> 'Il fut sujet pax la admirable tilnctorial et décidau d’y habiter auprès âge'
-```
-## CLI Usage
-
-    usage: corruption [-h] [--col COL] [--seed SEED] [--syn SYN] [--typo TYPO]
-                      [--typo-first] [--n_workers N_WORKERS]
-                      input output
-    
-    Corrupt some input text with synonym and mispells.
-    
-    positional arguments:
-      input                 path to input CSV to corrupt
-      output                output file to save result CSV
-    
-    optional arguments:
-      -h, --help            show this help message and exit
-      --col COL             Column that contains the text to be corrupted
-      --seed SEED           Seed for reproducibility (defaults to 2020)
-      --syn SYN             Number of synonym corruption iterations (defaults to
-                            0)
-      --typo TYPO           Number of misspell corruption iterations (defaults to
-                            0)
-      --typo-first          Inject misspells before synonyms (defaults to False)
-      --n_workers N_WORKERS
-                            Number of threads for joblib parallelisation, 0 for
-                            non-parallelisation (defaults to 0)
 ```
