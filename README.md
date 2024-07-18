@@ -1,32 +1,26 @@
-                                       ___                            _   
-                                      / __\___  _ __ _ __ _   _ _ __ | |_ 
-                                     / /  / _ \| '__| '__| | | | '_ \| __|
-                                    / /__| (_) | |  | |  | |_| | |_) | |_ 
-                                    \____/\___/|_|  |_|   \__,_| .__/ \__|
-                                                               |_|        
-# Python utilities to corrupt some input text
+# Python Library Ru Text Corrupter
 
-Script that takes some text as input and randomly modify words by using either
-- Levenshtein edit operations
+Script that takes some text as input and randomly modifies given strings, either single strings or a list of strings, by using Levenshtein edit operations, i.e. delete, transpose, replace, insert.
 
-Corruptions can be used as a data augmentation technique, or to benchmark NLP models robustness to misspells and/or synonyms.
+This is the fork of the repo by [el-cornetillo](https://github.com/el-cornetillo/corruption)
+
+This repo first of all adapts the repo to the Russian language, gets rid of the synonym replacement option.
+In addition, the current repo fixes the bug of the original repo when the returned strings separates the puctuation symbols.
+
 ## Set up
 Requirements: numpy, requests, joblib
-```bash
-$ pip install git+https://github.com/aylliote/corruption.git@master
+```bash 
+$ pip install git+https://github.com/eistakovskii/ru_text_corruption.git@master
 ```
-## Exemple
+## Example
 ```python
 from corruption import Corrupter
 
 corrupter = Corrupter()
-sample = "Il fut attiré par cette belle couleur et décida d’y séjourner quelque temps"
-corrupter.corrupt(sample, syn=1, typo=0)
->>> 'Il fut prédisposé par une charmante coloriant et décida d’y habiter pour période'
+sample = "Я люблю яблоки"
+corrupter.corrupt(sample, typo=1)
+>>> 'Я любюл яблоки'
 
-corrupter.corrupt(sample, syn=0, typo=3)
->>> 'Il mfut tatiré par cetet belle colueur et wécida d’y sgjourner quelque temzps'
-
-corrupter.corrupt(sample, syn=2, typo=3)
->>> 'Il fut sujet pax la admirable tilnctorial et décidau d’y habiter auprès âge'
+corrupter.corrupt(sample, typo=2)
+>>> 'Я лблю яблокиц'
 ```
