@@ -1,7 +1,6 @@
-import string
 from typing import List, Tuple
 
-letters = string.ascii_lowercase
+letters = 'АаБбВвГгДдЕеЁёЖжЗзИиЙйКкЛлМмНнОоПпРрСсТтУуФфХхЦцЧчШшЩщЪъЫыЬьЭэЮюЯя'
 
 TRANSPOSE = 'TRANPOSE'
 REPLACE = 'REPLACE'
