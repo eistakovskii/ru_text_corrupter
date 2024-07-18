@@ -7,10 +7,10 @@ This is the fork of the repo by [el-cornetillo](https://github.com/el-cornetillo
 This repo first of all adapts the repo to the Russian language, gets rid of the synonym replacement option.
 In addition, the current repo fixes the bug of the original repo when the returned strings separates the puctuation symbols.
 
-## Set up
+## How to Set up
 Requirements: numpy, requests, joblib
 ```bash 
-$ pip install git+https://github.com/eistakovskii/ru_text_corruption.git@master
+$ pip install git+https://github.com/eistakovskii/ru_text_corrupter.git
 ```
 ## Example
 ```python
