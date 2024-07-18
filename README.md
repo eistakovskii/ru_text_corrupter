@@ -1,3 +1,11 @@
+
+  ___            _             _____        _      ___                       _           
+ | _ \_  _ _____(_)__ _ _ _   |_   _|____ _| |_   / __|___ _ _ _ _ _  _ _ __| |_ ___ _ _ 
+ |   / || (_-<_-< / _` | ' \    | |/ -_) \ /  _| | (__/ _ \ '_| '_| || | '_ \  _/ -_) '_|
+ |_|_\\_,_/__/__/_\__,_|_||_|   |_|\___/_\_\\__|  \___\___/_| |_|  \_,_| .__/\__\___|_|  
+                                                                       |_|               
+
+
 # Python Library Ru Text Corrupter
 
 Script that takes some text as input and randomly modifies given strings, either single strings or a list of strings, by using Levenshtein edit operations, i.e. delete, transpose, replace, insert.
