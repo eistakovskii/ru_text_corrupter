@@ -55,14 +55,4 @@ corrupter.corrupt(sample, syn=2, typo=3)
       --n_workers N_WORKERS
                             Number of threads for joblib parallelisation, 0 for
                             non-parallelisation (defaults to 0)
-## Reference
-```bibtex
-@misc{zhang2015characterlevel,
-    title={Character-level Convolutional Networks for Text Classification},
-    author={Xiang Zhang and Junbo Zhao and Yann LeCun},
-    year={2015},
-    eprint={1509.01626},
-    archivePrefix={arXiv},
-    primaryClass={cs.LG}
-}
 ```
